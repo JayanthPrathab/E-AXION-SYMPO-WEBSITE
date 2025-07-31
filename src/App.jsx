@@ -1,19 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Hero from './components/Hero'
-import Landingpage from './components/Landingpage'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import Hero from './components/Hero';
+import Landingpage from './components/Landingpage';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+function AppWrapper() {
+  const location = useLocation();
 
   return (
-    <>
-      {/* <Hero /> */}
-      <Landingpage />
-    </>
-  )
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Hero />} />
+        <Route path="/events" element={<Landingpage />} />
+      </Routes>
+    </AnimatePresence>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <AppWrapper />
+    </BrowserRouter>
+  );
+}
+
+export default App;

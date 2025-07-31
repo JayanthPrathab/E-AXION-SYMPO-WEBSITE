@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -45,7 +47,18 @@ const Ticket = ({
             className="ticket-header-row"
             onClick={() => setDropdownOpen((prev) => !prev)}
           >
-            <div className="ticket-title">{title.toUpperCase()}</div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={title}
+                className="ticket-title"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                {title.toUpperCase()}
+              </motion.div>
+            </AnimatePresence>
             <div className="ticket-chevron">
               <FontAwesomeIcon
                 icon={dropdownOpen ? faChevronUp : faChevronDown}
@@ -53,70 +66,94 @@ const Ticket = ({
             </div>
           </div>
           <div className="ticket-divider-line" />
-          <div className="ticket-meta-row">
-            <div>{category.toUpperCase()}</div>
-            <div>{year}</div>
-            <div>MIN.{duration}</div>
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`${category}-${year}-${duration}`}
+              className="ticket-meta-row"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <div>{category.toUpperCase()}</div>
+              <div>{year}</div>
+              <div>MIN.{duration}</div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         <div className="ticket-divider-vertical" />
 
-        <div className="ticket-actions">
+        <div className="ticket-actions" onClick={() => setMenuOpen((prev) => !prev)}>
           <div
             className="hamburger-icon"
-            onClick={() => setMenuOpen((prev) => !prev)}
+            
           >
             <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
           </div>
         </div>
       </div>
-
-      {menuOpen && (
-        <div className="ticket-dropdown-menu">
-          <ul className="ticket-nav-links">
-            <li>
-              <span>01</span> {members.toUpperCase()}
-            </li>
-            <li>
-              <span>02</span> {rounds.toUpperCase()}
-            </li>
-            <li>
-              <span>03</span> DESCRIPTION{" "}
-              <FontAwesomeIcon
-                icon={descriptionOpen ? faChevronUp : faChevronDown}
-                onClick={() => setDescriptionOpen((prev) => !prev)}
-              />
-              <div
-                className={`description-content ${
-                  descriptionOpen ? "open" : ""
-                }`}
-              >
-                {description}
-              </div>
-            </li>
-          </ul>
-
-          <div className="ticket-social">
-            <i className="fa-brands fa-instagram" />
-            <i className="fa-brands fa-facebook-f" />
-            <i className="fa-brands fa-linkedin-in" />
-          </div>
-          <div className="ticket-footer">&copy;2025. E-AXION</div>
-        </div>
-      )}
-
-      {dropdownOpen && (
-        <div className="ticket-chevron-dropdown">
-          <ul className="project-list">
-            {coordinators.map((name, idx) => (
-              <li key={idx} className="coordinator-name">
-                {name}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="ticket-dropdown-menu"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          >
+            <ul className="ticket-nav-links">
+              <li>
+                <span>01</span> {members.toUpperCase()}
               </li>
-            ))}
-          </ul>
-        </div>
-      )}
+              <li>
+                <span>02</span> {rounds.toUpperCase()}
+              </li>
+              <li>
+                <span>03</span> DESCRIPTION{" "}
+                <FontAwesomeIcon
+                  icon={descriptionOpen ? faChevronUp : faChevronDown}
+                  onClick={() => setDescriptionOpen((prev) => !prev)}
+                />
+                <div
+                  className={`description-content ${
+                    descriptionOpen ? "open" : ""
+                  }`}
+                >
+                  {description}
+                </div>
+              </li>
+            </ul>
+
+            <div className="ticket-social">
+              <i className="fa-brands fa-instagram" />
+              <i className="fa-brands fa-facebook-f" />
+              <i className="fa-brands fa-linkedin-in" />
+            </div>
+            <div className="ticket-footer">&copy;2025. E-AXION</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {dropdownOpen && (
+          <motion.div
+            className="ticket-chevron-dropdown"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          >
+            <div className="coordinator_title">CO-ORDINATORS</div>
+            <ul className="project-list">
+              {coordinators.map((name, idx) => (
+                <li key={idx} className="coordinator-name">
+                  {name}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

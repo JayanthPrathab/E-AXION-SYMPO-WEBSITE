@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import Ticket from "../components/Ticket";
 import EventSection from "./Eventsection";
 
@@ -24,7 +25,7 @@ const events = [
     description:
       "The Eureka Expedition is a high-stakes technical quiz that tests your speed, logic, and adaptability. Race against time through challenges in electronics, communication, and innovation. Decode clues, crack layered logic, and uncover hidden answers — before time runs out.",
     poster: "/assets/ana-maxim.jpg",
-    qrImage:eureka,
+    qrImage: eureka,
     regLink: "https://forms.gle/1yGDfN5gfJYsws1P6",
     coordinators: [
       "MALINI PRIYA",
@@ -46,7 +47,7 @@ const events = [
     description:
       "ExoSolve is a sci-fi themed puzzle event where you decode alien signals that defy human logic. Use Earth-based reasoning to solve symbolic ciphers, logic anomalies, and pattern-based paradoxes. Each challenge brings you closer to understanding an extraterrestrial mind.",
     poster: "/assets/kafka.jpg",
-    qrImage:exo,
+    qrImage: exo,
     regLink: "https://forms.gle/oabgRGakGYwg5wpz9",
     coordinators: [
       "CHANDRA SEKARAN",
@@ -68,7 +69,7 @@ const events = [
     description:
       "A multi-round competitive event that tests observation, logic, and technical intuition — just like Gojo’s Six Eyes, participants must detect patterns, spot errors, and process information with speed and clarity.",
     poster: a1,
-    qrImage:show,
+    qrImage: show,
     regLink:
       "https://docs.google.com/forms/d/e/1FAIpQLSefq8R-2xasF3gA16pS9LGHgh26HpAYxkKpNFxF7Kd5l-QhIg/viewform?usp=header",
     coordinators: [
@@ -91,7 +92,7 @@ const events = [
     description:
       "Signal to My Soul is a retro-themed connection event where vintage tech meets modern minds. Decode clues, trace circuits, and solve analog-inspired puzzles — all wrapped in nostalgic vibes and hidden emotional cues. Make precise connections like logic gates and feel the spark — both technical and poetic.",
     poster: a2,
-    qrImage:soul,
+    qrImage: soul,
     regLink:
       "https://docs.google.com/forms/d/e/1FAIpQLSeZEQ4Mti9f227PHZGi6oN2GB8lwRtJTWoa_xfxmfxDS_7dZg/viewform?usp=sharing&ouid=115229466376450397276",
     coordinators: [
@@ -164,23 +165,30 @@ const Landingpage = () => {
   }, []);
 
   return (
-    <div>
-      {/* Fixed floating ticket */}
-      <Ticket key={activeIndex} {...events[activeIndex]} />
-      <img src={logo} alt="" className="eaxion_logo" />
-      {/* Event Sections */}
-      {events.map((event, index) => (
-        <div
-          key={index}
-          ref={(el) => (sectionRefs.current[index] = el)}
-          className={`event-wrapper ${
-            activeIndex === index ? "active" : "dimmed"
-          }`}
-        >
-          <EventSection {...event} />
-        </div>
-      ))}
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div>
+        {/* Fixed floating ticket */}
+        <Ticket key={activeIndex} {...events[activeIndex]} />
+        <img src={logo} alt="" className="eaxion_logo" />
+        {/* Event Sections */}
+        {events.map((event, index) => (
+          <div
+            key={index}
+            ref={(el) => (sectionRefs.current[index] = el)}
+            className={`event-wrapper ${
+              activeIndex === index ? "active" : "dimmed"
+            }`}
+          >
+            <EventSection {...event} />
+          </div>
+        ))}
+      </div>
+    </motion.div>
   );
 };
 

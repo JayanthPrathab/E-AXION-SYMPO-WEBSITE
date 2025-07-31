@@ -37,7 +37,7 @@ const EventSection = ({ title, year, category, tagline, poster,qrImage,regLink }
       {modalOpen && (
         <div className="modal-backdrop" onClick={() => setModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img src={qrImage} alt="QR Code" className="qr-image" /><br /> Scan to Register <br /><br /> OR <br />
+            <img src={qrImage} alt="QR Code" className="qr-image" /><br /> <div className="scan_1">Scan to Register <br /><br /> OR <br /></div>
             <a
               href={regLink}
               target="_blank"

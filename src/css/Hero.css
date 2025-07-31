@@ -64,6 +64,10 @@
   justify-content: center;
 }
 
+.link{
+  text-decoration: none;
+}
+
 .enter-btn {
   display: flex;
   align-items: center;

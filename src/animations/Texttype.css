@@ -1,0 +1,21 @@
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.text-type__cursor {
+  margin-left: 0.25rem;
+  font-size:48px;
+  display: inline-block;
+  opacity: 1;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}
+
+.text-type__content {
+  font-size:48px; 
+  font-weight: bold; 
+  font-family: "Viga", sans-serif;
+}

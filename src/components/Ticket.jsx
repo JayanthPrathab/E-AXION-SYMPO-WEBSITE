@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -9,16 +8,6 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import "../css/Eventsection.css";
-
-const sampleProjects = [
-  "SAVOY",
-  "MOON IN THE 12TH HOUSE",
-  "TABOO",
-  "KAFKA'S LAST TRIAL",
-  "MY PROJECT X",
-  "ANA MAXIM",
-  "OUTSIDER FREUD",
-];
 
 const Ticket = ({
   title,
@@ -34,10 +23,13 @@ const Ticket = ({
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [descriptionOpen, setDescriptionOpen] = useState(false);
+  const ticketRef = useRef(null);
+
+ 
 
   return (
     <>
-      <div className="ticket-box">
+      <div className="ticket-box" ref={ticketRef}>
         <div className="ticket-thumbnail-container">
           <img src={poster} alt={title} className="ticket-thumbnail" />
         </div>
@@ -45,7 +37,12 @@ const Ticket = ({
         <div className="ticket-info">
           <div
             className="ticket-header-row"
-            onClick={() => setDropdownOpen((prev) => !prev)}
+            onClick={() => {
+              setDropdownOpen((prev) => {
+                if (!prev) setMenuOpen(false);
+                return !prev;
+              });
+            }}
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -76,23 +73,26 @@ const Ticket = ({
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <div>{category.toUpperCase()}</div>
-              <div>{year}</div>
-              <div>MIN.{duration}</div>
+              <div>2025</div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <div className="ticket-divider-vertical" />
-
-        <div className="ticket-actions" onClick={() => setMenuOpen((prev) => !prev)}>
-          <div
-            className="hamburger-icon"
-            
-          >
+        <div
+          className="ticket-actions"
+          onClick={() => {
+            setMenuOpen((prev) => {
+              if (!prev) setDropdownOpen(false);
+              return !prev;
+            });
+          }}
+        >
+          <div className="hamburger-icon">
             <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
           </div>
         </div>
       </div>
+
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -102,6 +102,7 @@ const Ticket = ({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
           >
+            <div className="guidelines">EVENT GUIDE-LINES</div>
             <ul className="ticket-nav-links">
               <li>
                 <span>01</span> {members.toUpperCase()}
@@ -134,6 +135,7 @@ const Ticket = ({
           </motion.div>
         )}
       </AnimatePresence>
+
       <AnimatePresence>
         {dropdownOpen && (
           <motion.div

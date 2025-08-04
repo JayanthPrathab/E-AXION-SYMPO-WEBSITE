@@ -1,14 +1,26 @@
 .hero-container {
   width: 100%;
+  height: 100vh;
   background-color: black;
+   padding-top: 250px;
+
   color: white;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   flex-direction: column;
-  overflow: hidden;
+  text-align: center;
+  overflow: visible;
+
 }
+
+  @media (max-width:768px) {
+    .hero-container{
+      padding-top: 420px;
+    }
+  }
 
 .dark-veil-wrapper {
   top: 0;
@@ -19,44 +31,41 @@
 
 
 /* Logo animation: fade in and out */
-.logo-animation {
+.logo-animation-static {
   width: 560px;
-  animation: fadeInOut 2s ease-in-out forwards;
+  animation: fadeInOnly 1.5s ease-in forwards;
 }
 
-@keyframes fadeInOut {
-  0% {
+@keyframes fadeInOnly {
+  from {
     opacity: 0;
     transform: scale(0.9);
   }
-  20% {
+  to {
     opacity: 1;
     transform: scale(1);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.05);
   }
 }
 
 /* Presents text fade-in */
 .presents-text {
-    font-size:48px; 
-  font-weight: 400; 
-  font-family: "Viga", sans-serif;
-  animation: fadeIn 1s ease forwards;
+  font-size: 30px;
+  font-weight: 400;
+  font-family: 'Cinzel', serif;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fadeInText 1s ease forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInText {
   to {
     opacity: 1;
   }
 }
 
+.fade-in {
+  animation: fadeInText 1s ease forwards;
+}
 
 .enter-btn-wrapper {
   margin-top: 2rem;
@@ -114,9 +123,37 @@
 }
 
 @media(max-width:600px){
-    .logo-animation {
-        margin-left: 20px;
-  width: 340px;
-  animation: fadeInOut 2s ease-in-out forwards;
+      .logo-animation-static {
+    width: 340px;
+    margin-left: 20px;
+  }
 }
+
+.countdown {
+  margin-top: 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInText 1s ease forwards;
 }
+
+.commence_text{
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  padding-top: 15px;
+}
+
+.title_enter{
+  animation: fadeInOnly 1s ease forwards;
+}
+
+.pre_text{
+  font-size: 20px;
+}
+

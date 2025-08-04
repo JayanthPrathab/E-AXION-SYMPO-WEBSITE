@@ -12,6 +12,10 @@ import soul from "../assets/soul.jpg";
 import show from "../assets/showdown.jpg";
 import exo from "../assets/exo.jpg";
 import eureka from "../assets/eureka.jpg";
+import adv from "../assets/adventure.gif";
+import hbg from "../assets/horror1.png";
+import advbg from "../assets/adv1.png";
+import scifi from "../assets/scifi2.png";
 
 const events = [
   {
@@ -23,8 +27,8 @@ const events = [
     tagline: "“Find the answers before time finds you.”",
     duration: "27",
     description:
-      "The Eureka Expedition is a high-stakes technical quiz that tests your speed, logic, and adaptability. Race against time through challenges in electronics, communication, and innovation. Decode clues, crack layered logic, and uncover hidden answers — before time runs out.",
-    poster: "/assets/ana-maxim.jpg",
+      "The competition kicks off with a rapid-fire round to test your core knowledge and speed. Participants who crack this challenge will move on to the second round — designed to challenge your thinking from every angle. Sharpen your mind, team up, and prove you're the ultimate tech whiz!",
+    poster: advbg,
     qrImage: eureka,
     regLink: "https://forms.gle/1yGDfN5gfJYsws1P6",
     coordinators: [
@@ -46,7 +50,7 @@ const events = [
     duration: "83",
     description:
       "ExoSolve is a sci-fi themed puzzle event where you decode alien signals that defy human logic. Use Earth-based reasoning to solve symbolic ciphers, logic anomalies, and pattern-based paradoxes. Each challenge brings you closer to understanding an extraterrestrial mind.",
-    poster: "/assets/kafka.jpg",
+    poster: scifi,
     qrImage: exo,
     regLink: "https://forms.gle/oabgRGakGYwg5wpz9",
     coordinators: [
@@ -114,7 +118,7 @@ const events = [
     duration: "83",
     description:
       "Rapid R.I.P. is a horror-themed technical rapid-fire event where speed is your only escape. Answer fast-paced, eerie ECE questions before time — or your chances — run out. Every second counts. Every mistake haunts. Only the quickest minds survive.",
-    poster: "/assets/kafka.jpg",
+    poster: hbg,
     qrImage: rapid,
     regLink:
       "https://docs.google.com/forms/d/e/1FAIpQLSdjwoinxvbOppAVED2h-UPiL3EwEQH9fxM6158chZkGIB3iFA/viewform?usp=header",

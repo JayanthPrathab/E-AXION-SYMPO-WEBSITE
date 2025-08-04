@@ -26,6 +26,12 @@
   pointer-events: auto;
 }
 
+.event-section{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
 .event-right {
   text-align: right;
   max-width: 300px;
@@ -77,9 +83,6 @@
   padding: 2rem;
 }
 
-.event-left {
-  flex: 1;
-}
 
 .event-info-block {
   max-width: 500px;
@@ -249,9 +252,9 @@
 
 .hamburger-icon {
     text-align: center;
-    padding-right: 7px;
     font-size: 28px;
 }
+
 
 .ticket-chevron {
   font-size: 1rem;
@@ -517,4 +520,85 @@
   font-family: "Bitcount Prop Single", system-ui;
   font-size: 17px;
   font-weight: 500;
+}
+
+.guidelines{
+  font-size: 1rem;
+  font-family: "Bitcount Prop Single", system-ui;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .event-content {
+    flex-direction: column;
+    align-items: center; /* Or center */
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  .event-left, .event-right {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .eaxion_logo{
+    width: 150px;
+    height: 60px;
+    padding-top: 10px;
+  }
+
+  .ticket-info{
+    display: none;
+  }
+
+  .ticket-thumbnail-container{
+    display: none;
+  }
+
+  .ticket-box{
+    width: 80px;
+    justify-content: center;
+  }
+
+  .event-title {
+    font-size: 2rem;
+  }
+
+  .ticket-actions{
+    padding: 0;
+  }
+
+  .register-button {
+    width: auto;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+    .ticket-dropdown-menu {
+    top: 5.3rem;
+    right: 1rem;
+    width: 80vw;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .ticket-nav-links li {
+    font-size: 0.9rem;
+    margin: 0.8rem 0;
+  }
+
+  .description-content {
+    font-size: 0.9rem;
+  }
+
+  .ticket-footer {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .modal-content{
+    padding: 10px;
+  }
 }

@@ -1,0 +1,20 @@
+.image_div{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.main_c{
+    border-radius: 500px;
+    width: 210px;
+    height: 210px;
+    opacity: 0.7;
+}
+.c_title{
+    font-size: 32px;
+    font-weight: 500;
+}
+.c_name{
+      font-family: 'Cinzel', serif;
+}

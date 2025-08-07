@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import TextType from "../animations/Texttype";
 import logo from "../assets/logo-new2.webp";
 import Coordinators from "./Coordinators";
+import Guidelines from "./Guidelines";
 import "../css/Hero.css";
 
 const Hero = () => {
-
   const navigate = useNavigate();
   const [stage, setStage] = useState({
     showPresents: false,
@@ -24,16 +25,24 @@ const Hero = () => {
   // Set your event date here (e.g., March 15, 2025, 9 AM)
   const eventDate = new Date("2025-08-30T09:00:00");
 
-  useEffect(() => {
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" && stage.showTitle) {
-      navigate("/events");
-    }
+  const [showExtraSections, setShowExtraSections] = useState(false);
+
+  const fadeInVariant = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+    exit: { opacity: 0, y: 40, transition: { duration: 0.5 } },
   };
 
-  window.addEventListener("keydown", handleKeyDown);
-  return () => window.removeEventListener("keydown", handleKeyDown);
-}, [navigate, stage.showTitle]);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter" && stage.showTitle) {
+        navigate("/events");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [navigate, stage.showTitle]);
 
   useEffect(() => {
     const timers = [];
@@ -49,6 +58,12 @@ const Hero = () => {
         setStage((prev) => ({ ...prev, showTitle: true }));
       }, 3500)
     ); // Show title after 3.5s
+
+    timers.push(
+      setTimeout(() => {
+        setShowExtraSections(true);
+      }, 5000)
+    );
 
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -87,7 +102,10 @@ const Hero = () => {
 
         {/* "Presents" appears after delay */}
         {stage.showPresents && (
-          <div className="presents-text fade-in">Department of ECE <br /><span className="pre_text">Presents</span></div>
+          <div className="presents-text fade-in">
+            Department of ECE <br />
+            <span className="pre_text">Presents</span>
+          </div>
         )}
 
         {/* Title + Enter button appear after delay */}
@@ -120,7 +138,24 @@ const Hero = () => {
             </Link>
           </div>
         )}
-        <Coordinators />
+        {showExtraSections && (
+          <>
+            <AnimatePresence>
+              {showExtraSections && (
+                <motion.div
+                  key="guidelines-coordinators"
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  variants={fadeInVariant}
+                >
+                  <Guidelines />
+                  <Coordinators />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </>
+        )}
       </div>
     </motion.div>
   );

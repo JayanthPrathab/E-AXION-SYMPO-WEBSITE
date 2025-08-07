@@ -229,6 +229,7 @@
   letter-spacing: 0.6px;
   color: #444;
   font-weight: 600;
+  color: var(--highlight-color);
 }
 
 .ticket-divider-vertical {
@@ -365,7 +366,8 @@
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   padding: 1rem;
-  z-index: 1000;
+  z-index: 998;
+  overflow: visible;
   clip-path: polygon(
     12px 0%, calc(100% - 12px) 0%, 100% 12px,
     100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%,
@@ -382,12 +384,24 @@
   color: #fff;
   border: none;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   cursor: pointer;
   border-radius: 4px;
   text-transform: uppercase;
   font-family: "Michroma", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
+  animation: emphasize 1.5s infinite ease-in-out;
+}
+
+@keyframes emphasize {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
 }
 
 .project-list {
@@ -516,6 +530,12 @@
   font-weight: 600;
 }
 
+.coordinator-name{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
 .scan_1{
   font-family: "Bitcount Prop Single", system-ui;
   font-size: 17px;
@@ -601,4 +621,112 @@
   .modal-content{
     padding: 10px;
   }
+}
+
+.coordinator-toggle {
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+@keyframes pulseScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.scale-pulse {
+  display: inline-block;
+  animation: pulseScale 2s ease-in-out infinite;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.mobile-coordinators-toggle {
+  display: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .mobile-coordinators-toggle {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .ticket-chevron-dropdown{
+    top: calc(15.1% + 0.5rem);
+    right: 1rem;
+    width: 80vw;
+  }
+}
+
+.coordinator-row {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.coord-hover-card {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  margin-top: 8px;
+  background: #fff;
+  border: 1px solid #ccc;
+  z-index: 9999;
+  padding: 10px;
+  display: none;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.coordinator-row:hover .coord-hover-card {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+.coord-image {
+  width: 100%;
+  height: auto;
+  border-radius: 100%;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.coord-social-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.coord-social-icons a {
+  color: #333;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.coord-social-icons a:hover {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+.coord-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }

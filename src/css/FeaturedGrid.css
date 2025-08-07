@@ -1,0 +1,187 @@
+.featured-container {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.featured-logo {
+  width: 40%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.featured-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: 60vh;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+
+
+.grid-item {
+  position: relative;
+  height: 85%;
+  width: 10%;
+  overflow: hidden;
+  border-radius: 4px;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .grid-item {
+    width: 17%;
+  }
+  .featured-logo{
+    width: 80%;
+    text-align: center;
+  }
+  .grid-item:hover {
+    width: 30%;
+  }
+}
+
+.grid-top {
+  margin-top: 1.5rem;
+}
+
+.grid-bottom {
+  margin-bottom: 1.5rem;
+}
+
+.grid-hovered {
+  width: 16%;
+}
+
+.grid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .grid-image {
+  opacity: 1;
+}
+
+.grid-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.grid-item:hover .grid-video {
+  opacity: 0.9;
+}
+
+.featured-title {
+  text-align: center;
+  margin-top: 3rem;
+  animation: fadeIn 1s ease-in-out;
+  font-family: "Orbitron", sans-serif;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: gray;
+  text-transform: uppercase;
+}
+
+.main-title {
+  margin-top: 0.5rem;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.highlight {
+  color: red;
+}
+
+.blink {
+  margin-left: 0.3rem;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+.countdown {
+    display: flex;
+    flex-direction: column;
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  font-family: "Orbitron", sans-serif;
+}
+
+.countdown-timer {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+.enter-button {
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: black;
+  background-color: white;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: "Orbitron", sans-serif;
+}
+
+.enter-button:hover {
+  background-color: red;
+  color: white;
+  transform: scale(1.05);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.category-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent background */
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  pointer-events: none; /* allows hover events to pass through */
+  z-index: 2;
+  display: none;
+}
+
+.grid-item:hover .category-label {
+  display: flex;
+}

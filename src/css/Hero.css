@@ -1,9 +1,6 @@
 .hero-container {
   width: 100%;
-  height: 100vh;
   background-color: black;
-   padding-top: 250px;
-
   color: white;
   position: relative;
   display: flex;
@@ -16,12 +13,6 @@
 
 }
 
-  @media (max-width:768px) {
-    .hero-container{
-      padding-top: 420px;
-    }
-  }
-
 .dark-veil-wrapper {
   top: 0;
   width: 100%;
@@ -32,8 +23,9 @@
 
 /* Logo animation: fade in and out */
 .logo-animation-static {
-  width: 560px;
+  width: 760px;
   animation: fadeInOnly 1.5s ease-in forwards;
+  animation-delay: 0.5s;
 }
 
 @keyframes fadeInOnly {
@@ -46,7 +38,6 @@
     transform: scale(1);
   }
 }
-
 /* Presents text fade-in */
 .presents-text {
   font-size: 30px;
@@ -157,3 +148,74 @@
   font-size: 20px;
 }
 
+.gif1 {
+  position: absolute;
+  top: 38%;
+  left: 5%;
+  width: 250px;
+  border-radius: 50px;
+  transform: rotate(-10deg);
+  height: auto;
+  z-index: 1;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.gif2 {
+  position: absolute;
+  top: 35%;
+  left: 27%;
+  width: 100px;
+  border-radius: 20px;
+  transform: rotate(-10deg);
+  height: auto;
+  z-index: 1;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.gif3 {
+  position: absolute;
+  top: 35%;
+  right: 17%;
+  width: 100px;
+  border-radius: 20px;
+  transform: rotate(-10deg);
+  height: auto;
+  z-index: 1;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.gif4 {
+  position: absolute;
+  top: 35%;
+  right: 27%;
+  width: 100px;
+  border-radius: 20px;
+  transform: rotate(-10deg);
+  height: auto;
+  z-index: 1;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.gif5 {
+  position: absolute;
+  top: 25%;
+  right: 7%;
+  width: 100px;
+  border-radius: 20px;
+  transform: rotate(-10deg);
+  height: auto;
+  z-index: 1;
+  animation: floatY 4s ease-in-out infinite;
+}
+
+.gif6 {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 100px;
+  border-radius: 20px;
+  transform: rotate(-10deg);
+  height: auto;
+  z-index: 1;
+  animation: floatY 4s ease-in-out infinite;
+}

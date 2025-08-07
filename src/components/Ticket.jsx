@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
@@ -24,8 +25,6 @@ const Ticket = ({
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [descriptionOpen, setDescriptionOpen] = useState(false);
   const ticketRef = useRef(null);
-
- 
 
   return (
     <>
@@ -56,11 +55,7 @@ const Ticket = ({
                 {title.toUpperCase()}
               </motion.div>
             </AnimatePresence>
-            <div className="ticket-chevron">
-              <FontAwesomeIcon
-                icon={dropdownOpen ? faChevronUp : faChevronDown}
-              />
-            </div>
+            
           </div>
           <div className="ticket-divider-line" />
           <AnimatePresence mode="wait">
@@ -73,7 +68,17 @@ const Ticket = ({
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               <div>{category.toUpperCase()}</div>
-              <div>2025</div>
+              <div
+                className="coordinator-toggle scale-pulse"
+                onClick={() => {
+                  setDropdownOpen((prev) => {
+                    if (!prev) setMenuOpen(false);
+                    return !prev;
+                  });
+                }}
+              >
+                EVENT COORDINATORS
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -124,13 +129,20 @@ const Ticket = ({
                   {description}
                 </div>
               </li>
+              <li
+                className="mobile-coordinators-toggle"
+                onClick={() => {
+                  setDropdownOpen((prev) => {
+                    if (!prev) setMenuOpen(false);
+                    return !prev;
+                  });
+                }}
+              >
+                <span>04</span> EVENT COORDINATORS
+              </li>
             </ul>
 
-            <div className="ticket-social">
-              <i className="fa-brands fa-instagram" />
-              <i className="fa-brands fa-facebook-f" />
-              <i className="fa-brands fa-linkedin-in" />
-            </div>
+            
             <div className="ticket-footer">&copy;2025. E-AXION</div>
           </motion.div>
         )}
@@ -147,9 +159,41 @@ const Ticket = ({
           >
             <div className="coordinator_title">CO-ORDINATORS</div>
             <ul className="project-list">
-              {coordinators.map((name, idx) => (
-                <li key={idx} className="coordinator-name">
-                  {name}
+              {coordinators.map((person, idx) => (
+                <li key={idx} className="coordinator-name coordinator-row">
+                  <div className="coord-main">
+                    <span className="coord-name">{person.name}</span>
+                    <span className="coord-phone">{person.phone}</span>
+                  </div>
+                  {person.image && (
+                    <div className="coord-hover-card">
+                      <img
+                        className="coord-image"
+                        src={person.image}
+                        alt={person.name}
+                      />
+                      <div className="coord-social-icons">
+                        {person.linkedin && (
+                          <a
+                            href={person.linkedin}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i className="fab fa-linkedin-in"></i>
+                          </a>
+                        )}
+                        {person.instagram && (
+                          <a
+                            href={person.instagram}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <i className="fab fa-instagram"></i>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

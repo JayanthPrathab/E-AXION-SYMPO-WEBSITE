@@ -1,20 +1,41 @@
 .image_div{
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     flex-wrap: wrap;
     align-items: center;
 }
 .main_c{
     border-radius: 500px;
-    width: 210px;
-    height: 210px;
+    width: 150px;
+    height: 150px;
     opacity: 0.7;
 }
 .c_title{
+    text-align: center;
     font-size: 32px;
     font-weight: 500;
+    color: white;
+    font-family: "Goldman", sans-serif;
 }
 .c_name{
       font-family: 'Cinzel', serif;
+      color: white;
+      text-align: center;
+      font-family: "Goldman", sans-serif;
+}
+.mobile{
+    font-family: 'Cinzel', serif;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Goldman", sans-serif;
+}
+
+.main_c_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

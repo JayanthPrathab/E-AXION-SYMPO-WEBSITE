@@ -59,7 +59,7 @@ const events = [
       "The competition kicks off with a rapid-fire round to test your core knowledge and speed. Participants who crack this challenge will move on to the second round — designed to challenge your thinking from every angle. Sharpen your mind, team up, and prove you're the ultimate tech whiz!",
     poster: advbg,
     qrImage: eureka,
-    regLink: "https://forms.gle/1yGDfN5gfJYsws1P6",
+    regLink: "https://conoscenza2025.stjosephstechnology.ac.in/registration/",
     coordinators: [
       {
         name: "MALINI PRIYA",
@@ -117,7 +117,7 @@ const events = [
       "ExoSolve is a sci-fi themed puzzle event where you decode alien signals that defy human logic. Use Earth-based reasoning to solve symbolic ciphers, logic anomalies, and pattern-based paradoxes. Each challenge brings you closer to understanding an extraterrestrial mind.",
     poster: scifi,
     qrImage: exo,
-    regLink: "https://forms.gle/oabgRGakGYwg5wpz9",
+    regLink: "https://conoscenza2025.stjosephstechnology.ac.in/registration/",
     coordinators: [
       {
         name: "CHANDRA SEKARAN",
@@ -176,7 +176,7 @@ const events = [
     poster: a1,
     qrImage: show,
     regLink:
-      "https://docs.google.com/forms/d/e/1FAIpQLSefq8R-2xasF3gA16pS9LGHgh26HpAYxkKpNFxF7Kd5l-QhIg/viewform?usp=header",
+      "https://conoscenza2025.stjosephstechnology.ac.in/registration/",
     coordinators: [
       {
         name: "DHARUKESH",
@@ -235,7 +235,7 @@ const events = [
     poster: a2,
     qrImage: soul,
     regLink:
-      "https://docs.google.com/forms/d/e/1FAIpQLSeZEQ4Mti9f227PHZGi6oN2GB8lwRtJTWoa_xfxmfxDS_7dZg/viewform?usp=sharing&ouid=115229466376450397276",
+      "https://conoscenza2025.stjosephstechnology.ac.in/registration/",
     coordinators: [
       {
         name: "KISHORE KUMAR",
@@ -294,7 +294,7 @@ const events = [
     poster: hbg,
     qrImage: rapid,
     regLink:
-      "https://docs.google.com/forms/d/e/1FAIpQLSdjwoinxvbOppAVED2h-UPiL3EwEQH9fxM6158chZkGIB3iFA/viewform?usp=header",
+      "https://conoscenza2025.stjosephstechnology.ac.in/registration/",
     coordinators: [
       {
         name: "RAKSHA",

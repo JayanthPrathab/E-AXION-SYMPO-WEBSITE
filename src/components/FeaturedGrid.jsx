@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import logo from "../assets/logo-new2.webp";
+import logo from "../assets/c12.png";
 import "../css/FeaturedGrid.css";
+import busRoute from '../assets/busroute.pdf';
+
 import Guidelines from "./Guidelines";
 
 import a11 from "../assets/animethumb1.jpg";
@@ -87,7 +89,7 @@ const FeaturedGrid = () => {
         <h1 className="main-title">
           E-Axion <span className="highlight">'25</span><span className="blink">|</span>
         </h1>
-
+        <div className="busroute"><a href="https://www.instagram.com/eaxion2025?igsh=MTkxZ255cTEzemNvdg==&utm_source=ig_contact_invite"><i className="fab fa-instagram"></i></a> <a href={busRoute} target="_blank" rel="noopener noreferrer"><i className="fas fa-bus"></i></a></div>
         <div className="countdown">
          <div> Commences In  </div> 
           <div className="countdown-timer">

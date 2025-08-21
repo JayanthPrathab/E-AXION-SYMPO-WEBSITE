@@ -1,9 +1,9 @@
-# Redirect all requests to index.html (for React Router)
+# Redirect all requests to index.html (for React Router inside /e-axion)
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
+  RewriteBase /e-axion/
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . /e-axion/index.html [L]
 </IfModule>

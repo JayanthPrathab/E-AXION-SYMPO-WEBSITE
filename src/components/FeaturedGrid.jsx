@@ -30,6 +30,10 @@ const FeaturedGrid = () => {
 
   function getTimeRemaining() {
     const total = targetDate - new Date();
+      if (total <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
     const seconds = Math.floor((total / 1000) % 60);
     const minutes = Math.floor((total / 1000 / 60) % 60);
     const hours = Math.floor((total / (1000 * 60 * 60)) % 24);

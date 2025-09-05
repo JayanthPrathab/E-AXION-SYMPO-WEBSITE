@@ -21,7 +21,7 @@ function AppWrapper() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/e-axion">
       <AppWrapper />
     </BrowserRouter>
   );
